@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScript #1 Laura Davis</title>
+    
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <style>
+        
+        h1{
+            color: blue;
+            font-style: italic;
+        }
+        
+        button{
+        border: 2px solid skyblue;
+        background-color: red;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        
+        h2{
+            color: magenta;
+        }
+    </style>
+    
+</head>
+    
+<body>
+    <h1>My take home paycheck written by Laura Davis</h1>
+    <button onclick="calcTaxes()">Calculate my taxes</button>
+     
+    <script>
+        function calcTaxes(){
+            var annualIncome = prompt("What is your annual income?");
+            var fedTax = prompt("What is your federal income tax rate (as a percentage)?");
+            var stateTax = prompt("What is your state tax rate (as a percentage)?");
+            
+            var fed = fedTax / 100;
+            var state = stateTax / 100;
+            var fica = annualIncome * 0.0765;
+            var medicare = annualIncome * 0.0145;
+            var x = fica + medicare + (annualIncome * fed) + (annualIncome * state);
+            var annualNet = annualIncome - x;
+            var monthlyIncome = annualIncome / 12;
+            var monthlyNet = annualNet / 12;
+            
+            document.getElementById('demo1').innerHTML = "Your annual salary (gross) is $" + annualIncome;
+            document.getElementById('demo2').innerHTML = "Your monthly salary (gross) is $" + monthlyIncome;
+            document.getElementById('demo3').innerHTML = "Your annual salary (net) is $" + annualNet;
+            document.getElementById('demo4').innerHTML = "Your monthly salary (net) is $" + monthlyNet;
+            
+        }
+        
+    </script>
+     
+    <h2 id="demo1"></h2>
+    <h2 id="demo2"></h2>
+    <h2 id="demo3"></h2>
+    <h2 id="demo4"></h2>
+        
+</body>
+</html>
